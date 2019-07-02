@@ -13,6 +13,8 @@ git clone git@github.com:martinschilliger/Kamerasau.git
 Make shure to auto start the script with the code in `/etc/rc.local`:
 
 ```shell
-# Kamerasau streaming
-/home/pi/Kamerasau/stream.sh
+# Kamerasau update from GitHub
+(cd /home/pi/Kamerasau && git pull;)
+# Kamerasau start streaming
+/home/pi/Kamerasau/stream.sh &
 ```
