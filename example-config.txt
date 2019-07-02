@@ -19,3 +19,7 @@ LOGLEVEL="quiet" # https://ffmpeg.org/ffmpeg.html#Generic-options => loglevel
 SERVER_KEY="XXXX-XXXX-XXXX-XXXX"
 SERVER_URL="rtmp://a.rtmp.youtube.com/live2"
 RTMP_URL="${SERVER_URL}/${SERVER_KEY}"
+
+# Use with jsmpeg
+SECRET="XXXX-XXXX-XXXX-XXXX"
+WEBSOCKETS_URL="http://example:8081"
