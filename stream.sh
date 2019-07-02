@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Dieses Skript wird mit durch die Datei /etc/rc.local ausgeführt beim Start!
-
 source kamerasau.conf
 
 echo "Starting Stream to $RTMP_URL"
