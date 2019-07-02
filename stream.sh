@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source kamerasau.conf
+source ./kamerasau.conf
 
 echo "Starting Stream to $RTMP_URL"
 
@@ -16,3 +16,5 @@ raspivid -o - -t 0 --rotation 180 --vstab -w $WIDTH -h $HEIGHT -fps $FPS -b $BIT
 	-f flv $RTMP_URL/$STREAM_KEY
 
 echo "Finished streaming"
+
+exit 0
