@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ./kamerasau.conf
+. /home/pi/Kamerasau/kamerasau.conf
 
 echo "Starting Stream to $RTMP_URL"
 
