@@ -12,4 +12,5 @@ ffmpeg \
   -loglevel $LOGLEVEL \
   $WEBSOCKETS_URL/$SECRET
 
-echo "Finished streaming"
+echo "Ending Stream"
+exit 0;
