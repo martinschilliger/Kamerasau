@@ -7,10 +7,10 @@ Stream from Raspberry Camera Module to RTMP
 SSH into your RaspberryPi, make shure git is installed and git pull in pi home directory:
 
 ```console
-$ git clone git@github.com:martinschilliger/Kamerasau.git
-$ cd Kamerasau
-$ sudo chmod +x stream.sh
-$ sudo chmod +x update.sh
+pi@kamerasau1:~ $ git clone git@github.com:martinschilliger/Kamerasau.git
+pi@kamerasau1:~ $ cd Kamerasau/
+pi@kamerasau1:~/Kamerasau $ sudo chmod +x stream.sh
+pi@kamerasau1:~/Kamerasau $ sudo chmod +x update.sh
 
 ```
 
@@ -53,11 +53,11 @@ WantedBy=multi-user.target
 Enable and start the services
 
 ```console
-$ sudo chmod 644 /lib/systemd/system/kamerasauUpdate.service
-$ sudo chmod 644 /lib/systemd/system/kamerasau.service
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable kamerasauUpdate.service
-$ sudo systemctl enable kamerasau.service
-$ sudo systemctl start kamerasauUpdate.service
-$ sudo systemctl start kamerasau.service
+pi@kamerasau1:~ $ sudo chmod 644 /lib/systemd/system/kamerasauUpdate.service
+pi@kamerasau1:~ $ sudo chmod 644 /lib/systemd/system/kamerasau.service
+pi@kamerasau1:~ $ sudo systemctl daemon-reload
+pi@kamerasau1:~ $ sudo systemctl enable kamerasauUpdate.service
+pi@kamerasau1:~ $ sudo systemctl enable kamerasau.service
+pi@kamerasau1:~ $ sudo systemctl start kamerasauUpdate.service
+pi@kamerasau1:~ $ sudo systemctl start kamerasau.service
 ```
