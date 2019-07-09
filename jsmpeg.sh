@@ -2,6 +2,12 @@
 
 . /home/pi/Kamerasau/kamerasau.conf
 
+echo "Apply configuration options"
+
+if [ -n "$STARTUP_COMMANDS" ]; then
+  $STARTUP_COMMANDS
+else
+
 echo "Starting Stream to $RTMP_URL"
 
 ffmpeg \
