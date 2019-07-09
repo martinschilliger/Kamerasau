@@ -6,23 +6,19 @@
 #
 # Copy this file to /home/pi/kamerasau.conf and adjust!
 
+# Stream Settings
+VBR="2000k"
+FPS="25"
+WIDTH=800
+HEIGHT=450
 
-VBR="1M"
-FPS="24"
-KEYFRAME=50
-WIDTH=1280
-HEIGHT=720
-BITRATE=4000000
-QUAL="medium" # ultrafast, veryfast, medium
-LOGLEVEL="quiet" # https://ffmpeg.org/ffmpeg.html#Generic-options => loglevel
-
-SERVER_KEY="XXXX-XXXX-XXXX-XXXX"
-SERVER_URL="rtmp://a.rtmp.youtube.com/live2"
-RTMP_URL="${SERVER_URL}/${SERVER_KEY}"
-
-# Use with jsmpeg
+# Stream URL
 SECRET="XXXX-XXXX-XXXX-XXXX"
 WEBSOCKETS_URL="http://example:8081"
 
 # Startup commands (eg. v4l2-ctl commands, see "v4l2-ctl --list-ctrls-menus")
-STARTUP_COMMANDS='v4l2-ctl -c exposure_metering_mode=1 -c image_stabilization=1 -c rotate=180'
+STARTUP_COMMANDS='v4l2-ctl \
+-c exposure_metering_mode=1 \
+-c image_stabilization=1 \
+-c rotate=180 \
+'
