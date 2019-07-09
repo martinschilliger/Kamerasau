@@ -1,6 +1,6 @@
 # Kamerasau
 
-Stream from Raspberry Camera Module to RTMP
+Stream from Raspberry Camera Module to [JSMPEG](https://jsmpeg.com)
 
 # Install
 
@@ -11,10 +11,11 @@ pi@kamerasau1:~ $ git clone git@github.com:martinschilliger/Kamerasau.git
 pi@kamerasau1:~ $ cd Kamerasau/
 pi@kamerasau1:~/Kamerasau $ sudo chmod +x stream.sh
 pi@kamerasau1:~/Kamerasau $ sudo chmod +x update.sh
-
 ```
 
-Create the service for update on startup and then continuously run
+# Autostart
+
+Create the service to update the script on startup (simple `git pull`) and then continuously run it. Based on http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
 
 `/lib/systemd/system/kamerasauUpdate.service`
 
