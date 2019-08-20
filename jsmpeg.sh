@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Loading configuration file
 . /home/pi/Kamerasau/kamerasau.conf
 
 echo "Apply configuration options"
@@ -8,7 +9,7 @@ if [ -n "$STARTUP_COMMANDS" ]; then
   $STARTUP_COMMANDS
 fi
 
-echo "Starting Stream to $RTMP_URL"
+echo "Starting Stream to $WEBSOCKETS_URL"
 
 ffmpeg \
   -f v4l2 \
