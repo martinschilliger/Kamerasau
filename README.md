@@ -13,19 +13,30 @@ pi@kamerasau1:~/Kamerasau $ sudo chmod +x stream.sh
 pi@kamerasau1:~/Kamerasau $ sudo chmod +x update.sh
 ```
 
+# Configuration
+
+Copy the configuration file and adjust settings to your need.
+
+```console
+pi@kamerasau1:~/Kamerasau $ cp example-config.txt kamerasau.conf
+pi@kamerasau1:~/Kamerasau $ nano kamerasau.conf
+```
+
 # Autostart
 
-Create the service to update the script on startup (simple `git pull`) and then continuously run it. Based on http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
+Create the service to update the script on startup (simple `git pull` and set executions rights) and then continuously run it. Based on http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
 
 `/lib/systemd/system/kamerasauUpdate.service`
 
 ```shell
 [Unit]
 Description=Update Kamerasau
-After=multi-user.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
+User=pi
 ExecStart=/home/pi/Kamerasau/update.sh
 Restart=no
 RemainAfterExit=true
@@ -39,10 +50,12 @@ WantedBy=multi-user.target
 ```shell
 [Unit]
 Description=Kamerasau
-After=multi-user.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
+User=pi
 ExecStart=/home/pi/Kamerasau/jsmpeg.sh
 Restart=always
 RestartSec=5
@@ -51,12 +64,13 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 
-Enable and start the services
+Enable and start the services. `systemd-networkd-wait-online.service` is used to wait for the network before starting to stream. 🤷🏻‍♂️
 
 ```console
 pi@kamerasau1:~ $ sudo chmod 644 /lib/systemd/system/kamerasauUpdate.service
 pi@kamerasau1:~ $ sudo chmod 644 /lib/systemd/system/kamerasau.service
 pi@kamerasau1:~ $ sudo systemctl daemon-reload
+pi@kamerasau1:~ $ sudo systemctl enable systemd-networkd-wait-online.service
 pi@kamerasau1:~ $ sudo systemctl enable kamerasauUpdate.service
 pi@kamerasau1:~ $ sudo systemctl enable kamerasau.service
 pi@kamerasau1:~ $ sudo systemctl start kamerasauUpdate.service
