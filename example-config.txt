@@ -1,5 +1,4 @@
-# Configuration file for Kamerasau
-# Feel free to change and please share your experience in a GitHub issue!
+# Configuration file for Kamerasau Feel free to change and please share your experience in a GitHub issue!
 #
 # You can find descriptions and examples of the values here:
 # https://trac.ffmpeg.org/wiki/EncodingForStreamingSites
@@ -7,19 +6,32 @@
 # Copy this file to /home/pi/Kamerasau/kamerasau.conf and adjust!
 
 # Stream Settings
-VBR="2000k"
-FPS="25"
-WIDTH=800
-HEIGHT=450
+VBR="1000k"
+FPS="24"
+# look for appropriate pixel sizes at
+# https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
+#WIDTH=820
+WIDTH=768
+#WIDTH=640
+
+#HEIGHT=461
+HEIGHT=432
+#HEIGHT=360
 LOGLEVEL="quiet" # https://ffmpeg.org/ffmpeg.html#Generic-options => loglevel
 
 # Stream URL
 SECRET="XXXX-XXXX-XXXX-XXXX"
 WEBSOCKETS_URL="http://example:8081"
 
-# Startup commands (eg. v4l2-ctl commands, see "v4l2-ctl --list-ctrls-menus")
 STARTUP_COMMANDS='v4l2-ctl
 -c exposure_metering_mode=1
 -c image_stabilization=1
 -c rotate=180
+-c exposure_dynamic_framerate=0
+-c saturation=30
+-c brightness=51
+-c contrast=-5
+-c sharpness=98
+-c video_bitrate=1000000
+-c white_balance_auto_preset=3
 '
