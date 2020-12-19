@@ -4,7 +4,7 @@ Stream from Raspberry Camera Module to [JSMPEG](https://jsmpeg.com)
 
 # Install
 
-SSH into your RaspberryPi with Raspbian Lite, make shure git, ffmpeg and the camera module is installed and `git clone` in pi home directory:
+Prepare your RaspberrPi with the newest [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/). Then SSH into your RaspberryPi, update, upgrade and make shure git, ffmpeg and the camera module is installed. Then `git clone` in pi home directory:
 
 ```console
 pi@kamerasau1:~ $ git clone git@github.com:martinschilliger/Kamerasau.git
